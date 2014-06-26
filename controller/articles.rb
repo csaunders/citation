@@ -4,18 +4,28 @@ class ArticlesController < Controller
   map '/articles'
 
   def index
-    @articles = DB[:articles]
+    @title = "Articles"
+    @articles = Article.all
   end
 
   def show(id)
-    @article = DB[:articles].where(id: id).first
+    @article = Article.where(id: id).first
+    @title = "Articles / #{@article.url}"
   end
 
   def new
+    @title = "Create a new article"
     @article = Article.new
   end
 
   def save
-    redirect ArticlesController.r('') unless request.post?
+    if request.post?
+      data = request.subset(:id, :url, :title, :tagstring)
+
+      form = ArticleForm.new(data)
+      form.save
+    end
+
+    redirect ArticlesController.r('')
   end
 end

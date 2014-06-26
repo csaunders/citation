@@ -9,6 +9,7 @@
         <%= css('grid') %>
         <%= css('layout') %>
         <%= css('text') %>
+        <%= css('styles') %>
     </head>
     <body>
         <div class="container">
@@ -17,23 +18,15 @@
                 <div id="top" class="grid_12">
                     <header class="grid_6">
                         <h1><%= @title %></h1>
-                    </header> 
+                    </header>
 
                     <nav class="grid_6 last">
                         <ul class="clearfix">
-                            <li>
-                                <a href="http://ramaze.net/">Website</a>
-                            </li>
-                            <li>
-                                <a href="http://ramaze.net/documentation/index.html">
-                                    Documentation
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://groups.google.com/forum/#!forum/ramaze">
-                                    Mailing List
-                                </a>
-                            </li>
+                            <% hyperlinks.each do |link| %>
+                                <li>
+                                    <a href="<%= link.url %>"><%= link.title %></a>
+                                </li>
+                            <% end %>
                         </ul>
                     </nav>
                 </div>

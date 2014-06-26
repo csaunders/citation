@@ -1,1 +1,27 @@
-Hello world
+<div class="row grid_8">
+  <p>Articles</p>
+  <table>
+    <thead class="listing-header">
+      <th>Title</th>
+      <th>URL</th>
+      <th>Tags</th>
+    </thead>
+    <tbody class="listing">
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.title %></td>
+          <td><%= anchor(article.url) %></td>
+          <td>
+            <% article.tags.each do |tag| %>
+              <span class="tag"><%= tag.name %></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row grid_3">
+  <%= render_partial(:new) %>
+</div>

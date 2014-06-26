@@ -1,9 +1,11 @@
+<p>Add an Article</p>
+
 <%=
 form_for(@article, method: :post, action: ArticlesController.r(:save)) do |f|
-  f.input_text('Article URL', :url)
-  f.input_text('Contents', :contents)
-  f.input_text('Tags', :tagstring)
+  f.input_text('Title', :title, class: 'row')
+  f.input_text('Article URL', :url, class: 'row')
+  f.input_text('Tags', :tagstring, class: 'row')
 
-  f.input_submit('Submit')
+  f.input_submit('Submit', class: 'row')
 end
 %>
