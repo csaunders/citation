@@ -4,13 +4,14 @@ class ArticlesController < Controller
   map '/articles'
 
   def index
+    @bookmarklet = Bookmarklet.new(User.first)
     @title = "Articles"
     @articles = Article.all
   end
 
   def show(id)
     @article = Article.where(id: id).first
-    @title = "Articles / #{@article.url}"
+    @title = "Articles / #{@article.title}"
   end
 
   def new

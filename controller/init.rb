@@ -29,3 +29,4 @@ end
 require __DIR__('main')
 require __DIR__('articles')
 require __DIR__('quotes')
+require __DIR__('citations')

@@ -1,11 +1,15 @@
 class Article < Sequel::Model
   one_to_many :quotes
+  many_to_one :user
   many_to_many :tags, left_key: :taggable_id, right_key: :tag_id, join_table: :tags_article_tags
 
   set_schema do
     primary_key :id
+    Integer :user_id
+
     String :url
     String :title
+    index :user_id
   end
 
   create_table unless table_exists?

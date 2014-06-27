@@ -1,0 +1,12 @@
+javascript:(function(){
+  quote = function(){Citation.Quote({token: '<%= @token %>', url: '//<%= @citation_path %>'})};
+  if(document.getElementById('citation-needed') !== null){
+    quote();
+  } else {
+    var bookmarklet = document.createElement('script');
+    bookmarklet.onload = quote;
+    bookmarklet.src = '//<%= @script_path %>';
+    bookmarklet.id = 'citation-needed';
+    document.body.appendChild(bookmarklet);
+  }
+}());

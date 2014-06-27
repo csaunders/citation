@@ -9,7 +9,7 @@
     <tbody class="listing">
       <% @articles.each do |article| %>
         <tr>
-          <td><%= article.title %></td>
+          <td><%= ArticlesController.a(article.title, :show, article.id) %></td>
           <td><%= anchor(article.url) %></td>
           <td>
             <% article.tags.each do |tag| %>
@@ -24,4 +24,8 @@
 
 <div class="row grid_3">
   <%= render_partial(:new) %>
+</div>
+
+<div class="row grid_12">
+  <a href="<%= @bookmarklet.generate(self) %>">Install Bookmarklet</a>
 </div>
