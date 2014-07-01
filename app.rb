@@ -12,4 +12,6 @@ Ramaze.options.roots = [__DIR__]
 require __DIR__('model/init')
 require __DIR__('controller/init')
 
+Ramaze::Cache.options.session = Ramaze::Cache::Sequel.using(connection: DB, table: :citation_sessions)
+
 Bookmarklet.host = 'localhost:7000'

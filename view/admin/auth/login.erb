@@ -1,0 +1,10 @@
+<p>Login</p>
+
+<%=
+form_for(@article, method: :post, action: Admin::Auth.r(:create)) do |f|
+  f.input_text('Username', :username, class: 'row')
+  f.input_password('Password', :password, class: 'row')
+
+  f.input_submit('Submit', class: 'row')
+end
+%>

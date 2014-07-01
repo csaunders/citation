@@ -26,9 +26,9 @@ end
 
 class ArticleForm
   attr_reader :tagstring
-  def initialize(attrs)
+  def initialize(user, attrs)
     @tagstring = attrs.delete('tagstring')
-    @article = DB[:articles].where(id: attrs['id']).first || Article.new
+    @article = Article.where(id: attrs['id'], user_id: user.id).first || Article.new(user_id: user.id)
     @article.set(attrs)
   end
 

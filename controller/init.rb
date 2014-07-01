@@ -7,10 +7,7 @@ class Controller < Ramaze::Controller
   engine :erb
 
   def hyperlinks
-    [
-      Hyperlink.new(url: '/articles', title: 'Articles'),
-      Hyperlink.new(url: '/quotes', title: 'Quotes')
-    ]
+    []
   end
 
   before_all do
@@ -27,6 +24,5 @@ end
 #  end
 #
 require __DIR__('main')
-require __DIR__('articles')
-require __DIR__('quotes')
 require __DIR__('citations')
+require __DIR__('admin')

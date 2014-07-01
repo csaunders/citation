@@ -10,7 +10,7 @@ class Citations < Controller
 
     article = fetch_or_create_article(user, attrs['title'], attrs['url'])
     article.add_quote(contents: attrs['quote'])
-    respond('OK')
+    respond('Citation.Success("abracadabra")')
   end
 
   private

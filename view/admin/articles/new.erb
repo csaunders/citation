@@ -1,7 +1,7 @@
 <p>Add an Article</p>
 
 <%=
-form_for(@article, method: :post, action: ArticlesController.r(:save)) do |f|
+form_for(@article, method: :post, action: Admin::Articles.r(:save)) do |f|
   f.input_text('Title', :title, class: 'row')
   f.input_text('Article URL', :url, class: 'row')
   f.input_text('Tags', :tagstring, class: 'row')

@@ -9,7 +9,7 @@
     <tbody class="listing">
       <% @articles.each do |article| %>
         <tr>
-          <td><%= ArticlesController.a(article.title, :show, article.id) %></td>
+          <td><%= Admin::Articles.a(article.title, :show, article.id) %></td>
           <td><%= anchor(article.url) %></td>
           <td>
             <% article.tags.each do |tag| %>

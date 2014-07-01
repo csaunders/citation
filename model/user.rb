@@ -33,6 +33,10 @@ class User < Sequel::Model
     end
   end
 
+  def self.exists?(username)
+    !where(username: username).first.nil?
+  end
+
   def set_password(password: nil, confirmation: nil)
     if blank?(password) || blank?(confirmation)
       return
@@ -47,14 +51,18 @@ class User < Sequel::Model
     password = super
 
     if !password.nil?
-      BCrypt::Password.new(password)
+      return BCrypt::Password.new(password)
     else
-      nil
+      return nil
     end
   end
 
   private
-  def blank?(str)
+  def self.blank?(str)
     str.nil? || str.length <= 0
+  end
+
+  def blank?(str)
+    User.blank?(str)
   end
 end
