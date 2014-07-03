@@ -68,4 +68,5 @@ end
 require __DIR__('admin/home')
 require __DIR__('admin/articles')
 require __DIR__('admin/quotes')
+require __DIR__('admin/posts')
 require __DIR__('admin/auth')

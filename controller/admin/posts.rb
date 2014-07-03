@@ -1,6 +1,6 @@
 module Admin
-  class Posts < Controller
-    map 'posts'
+  class Posts < AdminController
+    map '/posts'
 
     def index
       @posts = current_user.posts
@@ -18,7 +18,11 @@ module Admin
       post.save
     end
 
-    def destroy
+    def destroy(id)
+      if request.delete? && (post = find_post(id))
+        post.delete
+      end
+      redirect Posts.r('')
     end
 
     private

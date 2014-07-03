@@ -1,5 +1,6 @@
 class User < Sequel::Model
   one_to_many :articles
+  one_to_many :posts
 
   set_schema do
     primary_key :id

@@ -11,4 +11,5 @@ require __DIR__('article')
 require __DIR__('quote')
 require __DIR__('hyperlink')
 require __DIR__('bookmarklet')
+require __DIR__('post')
 

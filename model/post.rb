@@ -9,11 +9,18 @@ class Post < Sequel::Model
     String :title
     String :body, text: true
     String :html, text: true
-    DateTime :created_at, null: false, default: :now.sql_function
+    DateTime :created_at, null: false
     DateTime :published_at
     TrueClass :published, default: true
-    index :user_id, :published
-    index :id, :user_id
+    index [:user_id, :published]
+    index [:id, :user_id]
+  end
+
+  create_table unless table_exists?
+
+  private
+  def before_create
+    self.created_at = Time.now.utc
   end
 end
 
